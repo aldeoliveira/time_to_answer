@@ -74,3 +74,4 @@ end
 gem "devise", "~> 4.9"
 gem "rails-i18n", "~> 7.0"
 gem "tty-spinner"
+gem "erb-formatter", "~> 0.4.3"
