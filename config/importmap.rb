@@ -8,3 +8,4 @@ pin_all_from "app/javascript/controllers", under: "controllers"
 
 pin "jquery", to: "jquery/dist/jquery.js"
 pin "bootstrap", to: "bootstrap/dist/js/bootstrap.js"
+pin "metismenu", to: "metismenu/dist/metisMenu.js"
