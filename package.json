@@ -5,6 +5,7 @@
   "author": "André <aldeoliveira03@gmail.com>",
   "license": "MIT",
   "dependencies": {
+    "bootstrap": "3.3.7",
     "jquery": "3.3.1"
   }
 }
