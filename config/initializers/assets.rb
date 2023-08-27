@@ -6,6 +6,7 @@ Rails.application.config.assets.version = "1.0"
 # Add additional assets to the asset load path.
 # Rails.application.config.assets.paths << Emoji.images_path
 Rails.application.config.assets.paths << Rails.root.join("node_modules")
+Rails.application.config.assets.paths << Rails.root.join("vendor", "stylesheets")
 
 # Precompile additional assets.
 # application.js, application.css, and all non-JS/CSS in the app/assets
@@ -13,3 +14,4 @@ Rails.application.config.assets.paths << Rails.root.join("node_modules")
 Rails.application.config.assets.precompile += %w( jquery.js )
 Rails.application.config.assets.precompile += %w( bootstrap/dist/js/bootstrap.js bootstrap.css )
 Rails.application.config.assets.precompile += %w( metismenu/dist/metisMenu.js metisMenu.css )
+Rails.application.config.assets.precompile += %w( sb-admin-2.js sb-admin-2.css )
