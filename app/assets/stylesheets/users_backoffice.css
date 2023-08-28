@@ -3,5 +3,5 @@
  *= require font-awesome/css/font-awesome
  *= require nprogress/nprogress
  *= require malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar
- *= gentelella-custom
+ *= require custom
  */
