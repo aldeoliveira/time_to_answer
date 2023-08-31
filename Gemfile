@@ -62,6 +62,9 @@ group :development do
 
   # Speed up commands on slow machines / big apps [https://github.com/rails/spring]
   # gem "spring"
+
+  gem "erb-formatter", "~> 0.4.3"
+  gem "awesome_print"
 end
 
 group :test do
@@ -74,5 +77,5 @@ end
 gem "devise", "~> 4.9"
 gem "rails-i18n", "~> 7.0"
 gem "tty-spinner"
-gem "erb-formatter", "~> 0.4.3"
 gem 'popper_js', '~> 1.14', '>= 1.14.7'
+gem "faker", "~> 3.2"
