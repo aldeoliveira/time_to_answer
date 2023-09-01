@@ -1,19 +1,21 @@
 Rails.application.routes.draw do
+  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
+
   namespace :site do
     get 'welcome/index'
   end
+
+  namespace :admins_backoffice do
+    get 'welcome/index'
+    resources :admins, only: [:index, :edit]
+  end
+
   namespace :users_backoffice do
     get 'welcome/index'
   end
-  namespace :admins_backoffice do
-    get 'admins/index'
-    get 'welcome/index'
-  end
   
-  devise_for :users
   devise_for :admins
-
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
+  devise_for :users
 
   root 'site/welcome#index'
 end
