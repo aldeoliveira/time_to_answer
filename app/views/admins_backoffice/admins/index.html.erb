@@ -25,7 +25,9 @@
             <%= link_to edit_admins_backoffice_admin_path(admin), class:"btn btn-primary btn-circle" do %>
               <i class="fa fa-edit"></i>
             <% end %>
-            <button type="button" class="btn btn-danger btn-circle"><i class="fa fa-eraser"></i></button>
+            <%= link_to admins_backoffice_admin_path(admin), data: { "turbo-method": :delete, turbo_confirm: "Deseja realmente excluir esse administrador?" }, class:"btn btn-danger btn-circle" do %>
+              <i class="fa fa-minus"></i>
+            <% end %>
           </td>
         </tr>
       <% end %>

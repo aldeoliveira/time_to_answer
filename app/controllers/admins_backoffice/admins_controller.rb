@@ -30,6 +30,15 @@ class AdminsBackoffice::AdminsController < AdminsBackofficeController
     end
   end
 
+  def destroy
+    @admin = Admin.find(params[:id])
+    if @admin.destroy
+      redirect_to admins_backoffice_admins_path, notice: "Administrador excluído com sucesso"
+    else
+      redirect_to :index
+    end
+  end
+
   private
 
   def verify_password

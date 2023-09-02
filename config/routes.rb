@@ -6,8 +6,8 @@ Rails.application.routes.draw do
   end
 
   namespace :admins_backoffice do
-    get 'welcome/index'
-    resources :admins, except: [:destroy]
+    get 'welcome/index' # Dashboard
+    resources :admins # Administradores
   end
 
   namespace :users_backoffice do
