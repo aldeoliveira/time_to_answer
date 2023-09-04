@@ -1,9 +1,8 @@
-class AdminsBackoffice::SubjectsController < ApplicationController
+class AdminsBackoffice::SubjectsController < AdminsBackofficeController
   before_action :set_subject, only: [:edit, :update, :destroy]
 
-
   def index
-    @subjects = Subject.all
+    @subjects = Subject.all.order(:description).page(params[:page])
   end
 
   def new
@@ -13,11 +12,9 @@ class AdminsBackoffice::SubjectsController < ApplicationController
   def create
     @subject = Subject.new(params_subject)
     if @subject.save
-      flash[:success] = "Subject successfully created"
-      redirect_to @subject
+      redirect_to admins_backoffice_subjects_path, notice: "Assunto/Área cadastrado com sucesso"
     else
-      flash[:error] = "Something went wrong"
-      render 'new'
+      render :new
     end
   end
 
@@ -25,12 +22,10 @@ class AdminsBackoffice::SubjectsController < ApplicationController
   end
 
   def update
-      if @subject.update_attributes(params[:subject])
-        flash[:success] = "O assunto foi cadastrado com sucesso"
-        redirect_to @subject
+      if @subject.update(params_subject)
+        redirect_to admins_backoffice_admins_path, notice: "Assunto/Área atualizado com sucesso"
       else
-        flash[:error] = "Something went wrong"
-        render 'edit'
+        render :edit
       end
   end
 
