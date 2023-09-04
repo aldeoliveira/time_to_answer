@@ -79,3 +79,5 @@ gem "rails-i18n", "~> 7.0"
 gem "tty-spinner"
 gem 'popper_js', '~> 1.14', '>= 1.14.7'
 gem "faker", "~> 3.2"
+gem "kaminari"
+gem "kaminari-i18n", "~> 0.5.0"
