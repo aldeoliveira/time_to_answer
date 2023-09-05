@@ -8,8 +8,8 @@
         one: Usuário
         other: Usuários
       subject:
-        one: Assunto
-        other: Assuntos
+        one: Assunto/Área
+        other: Assuntos/Áreas
       question:
         one: Pergunta
         other: Perguntas

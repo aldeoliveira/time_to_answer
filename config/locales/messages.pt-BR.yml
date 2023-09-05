@@ -1,4 +1,9 @@
 'pt-BR':
-  messages:
+  message:
     list_of: Lista de %{model}
     confirm_with: Deseja realmente excluir "%{item}"?
+    action:
+      edit: Editar
+      update: Salvar
+      new: Criar
+      create: Salvar

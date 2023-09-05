@@ -1,0 +1,10 @@
+'pt-BR':
+  placeholder:
+    admin:
+      email: Email do administrador
+      password: Digite uma senha
+      password_confirmation: Confirme a senha
+    question:
+      description: Descrição da pergunta
+    subject:
+      description: Descrição do assunto/área

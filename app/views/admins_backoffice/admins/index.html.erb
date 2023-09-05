@@ -1,6 +1,6 @@
 <div class="row">
   <div class="col-lg-12">
-    <h1 class="page-header"><%= t("messages.list_of", model: @admins.model_name.human(count: 2)) %></h1>
+    <h1 class="page-header"><%= t('message.list_of', model:@admins.model_name.human(count: 2)) %></h1>
   </div>
 </div>
 <div class="table-responsive">
@@ -27,7 +27,7 @@
             <% end %>
             <%= link_to admins_backoffice_admin_path(admin),
               class:"btn btn-danger btn-circle",
-              data: { "turbo-method": :delete, turbo_confirm: t('messages.confirm_with', item:admin.email) } do
+              data: { "turbo-method": :delete, turbo_confirm: t('message.confirm_with', item:admin.email) } do
             %>
               <i class="fa fa-minus"></i>
             <% end %>
