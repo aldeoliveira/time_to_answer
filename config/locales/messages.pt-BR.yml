@@ -1,0 +1,4 @@
+'pt-BR':
+  messages:
+    list_of: Lista de %{model}
+    confirm_with: Deseja realmente excluir "%{item}"?
