@@ -81,3 +81,4 @@ gem 'popper_js', '~> 1.14', '>= 1.14.7'
 gem "faker", "~> 3.2"
 gem "kaminari"
 gem "kaminari-i18n", "~> 0.5.0"
+gem "cocoon", "~> 1.2"
