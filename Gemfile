@@ -65,6 +65,7 @@ group :development do
 
   gem "erb-formatter", "~> 0.4.3"
   gem "awesome_print"
+  gem 'rails_db', '>= 2.3.1'
 end
 
 group :test do
