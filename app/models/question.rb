@@ -3,5 +3,15 @@ class Question < ApplicationRecord
   has_many :answers
   accepts_nested_attributes_for :answers, reject_if: :all_blank, allow_destroy: :true
 
+  # Kaminari
   paginates_per 5
+
+  # Scopes
+  scope :search_term, -> (page, term) {
+    includes(:answers).where("LOWER(description) LIKE ?", "%#{term.downcase}%").page(page)
+  }
+
+  scope :last_questions, -> (page) {
+    includes(:answers).order('created_at desc').page(page)
+  }
 end
