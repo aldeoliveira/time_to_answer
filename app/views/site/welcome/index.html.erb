@@ -1,18 +1,12 @@
-<h1>Site::Welcome#index</h1>
-<p>Find me in app/views/site/welcome/index.html.erb</p>
-
-<% if admin_signed_in? %>
-  <p>Administrador <strong><%= current_admin.email %></strong> ESTÁ logado.</p>
-<% else %>
-  <p>Administrador NÃO está logado.</p>
+<% @questions.each do |question| %>
+  <div class="panel panel-default">
+    <div class="panel-heading"><%= question.description %></div>
+    <div class="panel-body">
+      <ul>
+        <% question.answers.each do |answer| %>
+          <li><%= answer.description %></li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
 <% end %>
-
-<p><%= link_to 'Backoffice do Admin', admins_backoffice_welcome_index_path %></p>
-
-<% if user_signed_in? %>
-  <p>Usuário <strong><%= current_user.email %></strong> ESTÁ logado.</p>
-<% else %>
-  <p>Usuário NÃO está logado.</p>
-<% end %>
-
-<p><%= link_to 'Backoffice do Usuário', users_backoffice_welcome_index_path %></p>
