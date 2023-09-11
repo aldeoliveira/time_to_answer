@@ -16,7 +16,8 @@ Rails.application.config.assets.paths << Rails.root.join("vendor", "stylesheets"
 Rails.application.config.assets.precompile += %w( admins_backoffice.js admins_backoffice.css
                                                   users_backoffice.js users_backoffice.css
                                                   admin_devise.js admin_devise.css
-                                                  user_devise.js user_devise.css )
+                                                  user_devise.js user_devise.css
+                                                  site.js site.css )
 
 # /lib/assets
 Rails.application.config.assets.precompile += %w( img.jpg )
@@ -24,7 +25,9 @@ Rails.application.config.assets.precompile += %w( img.jpg )
 # /vendor
 Rails.application.config.assets.precompile += %w( jquery-2.2.3/dist/jquery.js
                                                   custom.js custom.css
-                                                  sb-admin-2.js sb-admin-2.css )
+                                                  sb-admin-2.js sb-admin-2.css
+                                                  navbar.css
+                                                  surface-fix.js surface-fix.css )
 
 # /node_modules
 Rails.application.config.assets.precompile += %w( jquery/dist/jquery.js
