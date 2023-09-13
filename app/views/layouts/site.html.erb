@@ -76,13 +76,6 @@
         </div>
       </nav>
 
-      <div class="jumbotron">
-        <% unless params[:term] %>
-          <h3>Últimas perguntas cadastradas</h3>
-        <% else %>
-          <h3>Resultados para o termo <strong><%= params[:term] %></strong></h3>
-        <% end %>
-      </div>
       <%= yield %>
     </div>
 
