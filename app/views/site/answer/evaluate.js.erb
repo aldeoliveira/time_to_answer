@@ -1,1 +1,22 @@
-alert("Olá! A alternativa escolhida está <%= @answer.correct ? 'correta!' : 'incorreta...' %>");
+var submitBtn = document.querySelector("#submit_<%= @answer.question_id %>");
+
+submitBtn.classList.remove("btn-default");
+submitBtn.classList.remove("btn-success");
+submitBtn.classList.remove("btn-danger");
+
+if (<%= @answer.correct %>) {
+    submitBtn.classList.add("btn-success");
+    showPopUp("Você acertou!", "success");
+} else {
+    submitBtn.classList.add("btn-danger");
+    showPopUp("Você errou...", "danger");
+}
+
+function showPopUp(message, type) {
+    $.bootstrapGrowl(message, {
+        type: type,
+        align: "right",
+        allow_dismiss: true,
+        stackup_spacing: 10
+    });
+}
