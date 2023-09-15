@@ -7,7 +7,7 @@
 </div>
 
 <% @questions.each do |question| %>
-  <%= form_with url: site_answer_path, local: true, data: { turbo: false } do |form| %>
+  <%= form_with url: site_answer_path, local: false do |form| %>
     <div class="panel panel-default">
       <div class="panel-heading"><%= question.description %></div>
       <div class="panel-body">
