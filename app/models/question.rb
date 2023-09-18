@@ -7,11 +7,15 @@ class Question < ApplicationRecord
   paginates_per 5
 
   # Scopes
-  scope :search_term, -> (page, term) {
-    includes(:answers).where("LOWER(description) LIKE ?", "%#{term.downcase}%").page(page)
+  scope :_search_term_, -> (page, term) {
+    includes(:answers, :subject).where("LOWER(description) LIKE ?", "%#{term.downcase}%").page(page)
   }
 
-  scope :last_questions, -> (page) {
-    includes(:answers).order('created_at desc').page(page)
+  scope :_last_questions_, -> (page) {
+    includes(:answers, :subject).order('created_at desc').page(page)
+  }
+
+  scope :_search_subject_, -> (page, subject_id) {
+    includes(:answers, :subject).where(subject_id: subject_id).page(page)
   }
 end
