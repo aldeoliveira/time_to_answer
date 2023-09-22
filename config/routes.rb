@@ -19,7 +19,7 @@ Rails.application.routes.draw do
     get 'welcome/index'
   end
   
-  devise_for :admins
+  devise_for :admins, skip: [:registration]
   devise_for :users
 
   root 'site/welcome#index'
