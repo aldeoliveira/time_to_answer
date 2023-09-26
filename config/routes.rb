@@ -17,6 +17,8 @@ Rails.application.routes.draw do
 
   namespace :users_backoffice do
     get 'welcome/index'
+    # get 'profile', to: 'profile#edit'
+    resources :profile, only: [:edit]
   end
   
   devise_for :admins, skip: [:registration]
