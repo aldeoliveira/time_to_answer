@@ -38,8 +38,8 @@
                 <%= image_tag "img.jpg", alt:"...", class:"img-circle profile_img" %>
               </div>
               <div class="profile_info">
-                <span>Welcome,</span>
-                <h2>John Doe</h2>
+                <span>Seja bem-vindo,</span>
+                <h2><%= user_name %></h2>
               </div>
             </div>
             <!-- /menu profile quick info -->
@@ -104,7 +104,7 @@
                     aria-expanded="false"
                   >
                     <%= image_tag "img.jpg", alt:"" %>
-                    <%= current_user.email %>
+                    <%= user_name %>
                   </a>
 
                   <div class="dropdown-menu dropdown-usermenu pull-right" aria-labelledby="navbarDropdown">
