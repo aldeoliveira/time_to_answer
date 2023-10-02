@@ -9,12 +9,12 @@
  */
 
 
-.form-group .btn-primary,
-.form-group .btn-secondary {
+.form-group .btn-group .btn-primary,
+.form-group .btn-group .btn-secondary {
     cursor: pointer;
 }
 
-.form-group .btn-secondary {
+.form-group .btn-group .btn-secondary {
     background-color: transparent;
     color: rgb(0, 0, 0);
     border-color: rgb(108, 117, 125);
