@@ -10,30 +10,60 @@
       </div>
       <div class="x_content">
         <br>
-        <form id="demo-form2" data-parsley-validate="" class="form-horizontal form-label-left" novalidate="">
-
+        <% if @user.errors.any? %>
+          <div class="alert alert-danger alert-dismissable" role="alert">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">×</button>
+            <ul>
+              <% @user.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+              <% end %>
+            </ul>
+          </div>
+        <% end %>
+        <%= form_with(
+          url: users_backoffice_profile_path,
+          model: @user,
+          local: true,
+          class:"form-horizontal form-label-left"
+        ) do |form| %>
           <div class="item form-group">
-            <label class="col-form-label col-md-3 col-sm-3 label-align" for="first-name">
-              Nome <span class="required">*</span>
-            </label>
+            <div class="col-form-label col-md-3 col-sm-3 label-align">
+              <%= form.label :first_name %>
+            </div>
             <div class="col-md-6 col-sm-6 ">
-              <input type="text" id="first-name" required="required" class="form-control ">
+              <%= form.text_field :first_name, class:"form-control" %>
             </div>
           </div>
           <div class="item form-group">
-            <label class="col-form-label col-md-3 col-sm-3 label-align" for="last-name">
-              Sobrenome <span class="required">*</span>
-            </label>
+            <div class="col-form-label col-md-3 col-sm-3 label-align">
+              <%= form.label :first_name %>
+            </div>
             <div class="col-md-6 col-sm-6 ">
-              <input type="text" id="last-name" name="last-name" required="required" class="form-control">
+              <%= form.text_field :last_name, class:"form-control" %>
             </div>
           </div>
           <div class="item form-group">
-            <label for="middle-name" class="col-form-label col-md-3 col-sm-3 label-align">
-              E-mail
-            </label>
+            <div class="col-form-label col-md-3 col-sm-3 label-align">
+              <%= form.label :first_name %>
+            </div>
             <div class="col-md-6 col-sm-6 ">
-              <input id="middle-name" class="form-control" type="text" name="middle-name">
+              <%= form.text_field :email, class:"form-control", readonly: true %>
+            </div>
+          </div>
+          <div class="item form-group">
+            <div class="col-form-label col-md-3 col-sm-3 label-align">
+              <%= form.label :first_name %>
+            </div>
+            <div class="col-md-6 col-sm-6 ">
+              <%= form.password_field :password, class:"form-control" %>
+            </div>
+          </div>
+          <div class="item form-group">
+            <div class="col-form-label col-md-3 col-sm-3 label-align">
+              <%= form.label :password_confirmation %>
+            </div>
+            <div class="col-md-6 col-sm-6 ">
+              <%= form.password_field :password_confirmation, class:"form-control" %>
             </div>
           </div>
           <div class="ln_solid"></div>
@@ -42,7 +72,7 @@
               <button type="submit" class="btn btn-success">Submit</button>
             </div>
           </div>
-        </form>
+        <% end %>
       </div>
     </div>
   </div>
