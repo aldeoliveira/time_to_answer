@@ -3,5 +3,19 @@
  *= require font-awesome/css/font-awesome
  *= require nprogress/nprogress
  *= require malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar
+ *= require jquery-ui/themes/base/datepicker
+ *= require jquery-ui/themes/base/theme
  *= require custom
  */
+
+
+.form-group .btn-primary,
+.form-group .btn-secondary {
+    cursor: pointer;
+}
+
+.form-group .btn-secondary {
+    background-color: transparent;
+    color: rgb(0, 0, 0);
+    border-color: rgb(108, 117, 125);
+}

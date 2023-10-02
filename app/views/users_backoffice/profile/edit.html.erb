@@ -36,7 +36,7 @@
           </div>
           <div class="item form-group">
             <div class="col-form-label col-md-3 col-sm-3 label-align">
-              <%= form.label :first_name %>
+              <%= form.label :last_name %>
             </div>
             <div class="col-md-6 col-sm-6 ">
               <%= form.text_field :last_name, class:"form-control" %>
@@ -44,15 +44,83 @@
           </div>
           <div class="item form-group">
             <div class="col-form-label col-md-3 col-sm-3 label-align">
-              <%= form.label :first_name %>
+              <%= form.label :email %>
             </div>
             <div class="col-md-6 col-sm-6 ">
               <%= form.text_field :email, class:"form-control", readonly: true %>
             </div>
           </div>
+          <%= form.fields_for :user_profile do |profile_form| %>
+            <div class="item form-group">
+              <div class="col-form-label col-md-3 col-sm-3 label-align">
+                <%= profile_form.label :address %>
+              </div>
+              <div class="col-md-6 col-sm-6 ">
+                <%= profile_form.text_field :address, class:"form-control" %>
+              </div>
+            </div>
+            <div class="item form-group">
+              <div class="col-form-label col-md-3 col-sm-3 label-align">
+                <%= profile_form.label :gender %>
+              </div>
+              <div class="col-md-6 col-sm-6 ">                
+                <div id="gender" class="btn-group" data-toggle="buttons">
+                  <label
+                    class="btn <%= gender_select(@user, "M") %>"
+                    data-toggle-class="btn-primary"
+                    data-toggle-passive-class="btn-secondary"
+                  >
+                    <%= profile_form.radio_button :gender, "M", class:"join-btn", "data-parsley-multiple":"gender", "data-parsley-id":"12" %> &nbsp; Masculino &nbsp;
+                  </label>
+                  <label
+                    class="btn <%= gender_select(@user, "F") %>"
+                    data-toggle-class="btn-primary"
+                    data-toggle-passive-class="btn-secondary"
+                  >
+                    <%= profile_form.radio_button :gender, "F", class:"join-btn", "data-parsley-multiple":"gender" %> Feminino
+                  </label>
+                  <label
+                    class="btn <%= gender_select(@user, "N") %>"
+                    data-toggle-class="btn-primary"
+                    data-toggle-passive-class="btn-secondary"
+                  >
+                    <%= profile_form.radio_button :gender, "N", class:"join-btn", "data-parsley-multiple":"gender" %> Não-Binário
+                  </label>
+                </div>
+              </div>
+            </div>
+
+            <%= javascript_tag do %>
+              var labels = document.querySelectorAll('div#gender label');
+
+              labels.forEach((label) => {
+                label.addEventListener('click', () => {
+                  label.classList.remove('btn-secondary');
+                  label.classList.add('btn-primary');
+
+                  labels.forEach((lbl) => {
+                    if (lbl !== label) {
+                      lbl.classList.remove('btn-primary');
+                      lbl.classList.add('btn-secondary');
+                    };
+                  })
+                })
+              });
+
+            <% end %>
+
+            <div class="item form-group">
+              <div class="col-form-label col-md-3 col-sm-3 label-align">
+                <%= profile_form.label :birthdate %>
+              </div>
+              <div class="col-md-6 col-sm-6 ">
+                <%= profile_form.text_field :birthdate, value: l(@user.user_profile.birthdate), class:"form-control datepicker" %>
+              </div>
+            </div>
+          <% end %>
           <div class="item form-group">
             <div class="col-form-label col-md-3 col-sm-3 label-align">
-              <%= form.label :first_name %>
+              <%= form.label :password %>
             </div>
             <div class="col-md-6 col-sm-6 ">
               <%= form.password_field :password, class:"form-control" %>
@@ -69,7 +137,7 @@
           <div class="ln_solid"></div>
           <div class="item form-group">
             <div class="col-md-6 col-sm-6 offset-md-3">
-              <button type="submit" class="btn btn-success">Submit</button>
+              <button type="submit" class="btn btn-success"><%= t('message.action.update') %></button>
             </div>
           </div>
         <% end %>
