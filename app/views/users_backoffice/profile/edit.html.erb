@@ -114,7 +114,10 @@
                 <%= profile_form.label :birthdate %>
               </div>
               <div class="col-md-6 col-sm-6 ">
-                <%= profile_form.text_field :birthdate, value: l(@user.user_profile.birthdate), class:"form-control datepicker" %>
+                <%= profile_form.text_field :birthdate,
+                  value: (l(@user.user_profile.birthdate) unless @user.user_profile.birthdate.blank?),
+                  class:"form-control datepicker"
+                %>
               </div>
             </div>
           <% end %>
