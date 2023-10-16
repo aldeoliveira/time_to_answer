@@ -35,7 +35,7 @@
             <!-- menu profile quick info -->
             <div class="profile clearfix">
               <div class="profile_pic">
-                <%= link_to image_tag(avatar_url, alt:"...", class:"img-circle profile_img"), "#", "data-toggle":"modal", "data-target":".bd-example-modal-sm"  %>
+                <%= link_to image_tag(avatar_url, alt:"...", class:"img-circle profile_img", id:"imgAvatarSidebar"), "#", "data-toggle":"modal", "data-target":"#avatarModal" %>
               </div>
               <div class="profile_info">
                 <span>Seja bem-vindo,</span>
@@ -103,7 +103,7 @@
                     data-toggle="dropdown"
                     aria-expanded="false"
                   >
-                    <%= image_tag avatar_url, alt:"" %>
+                    <%= image_tag avatar_url, alt:"", id:"imgAvatarNav" %>
                     <%= user_name %>
                   </a>
 
@@ -142,6 +142,34 @@
       </div>
     </div>
 
+    <!-- Small modal -->
+    <div id="avatarModal" class="modal fade bd-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+          <%= form_with(url: users_backoffice_profile_path, model: current_user, local: false) do |form| %>
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Avatar</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <%= form.fields_for :user_profile do |profile_form| %>
+              <div class="form-group">
+                <%= profile_form.label :avatar %>
+                <%= image_tag(avatar_url, alt:"...", class:"img-circle profile_img", id:"imgAvatarModal") %>
+                <%= profile_form.file_field :avatar %>
+              </div>
+            <% end %>
+          </div>
+          <div class="modal-footer">
+            <%= form.submit "Salvar", class:"btn btn-primary" %>
+          </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+
     <%= javascript_importmap_tags %>
     <%= javascript_include_tag "users_backoffice" %>
     <!-- jQuery v2.2.3 -->
@@ -166,35 +194,6 @@
         $('.datepicker').datepicker()
       });
     <% end %>
-
-    <!-- Small modal -->
-    <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-sm">Small modal</button>
-    <div class="modal fade bd-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
-      <div class="modal-dialog modal-sm">
-        <div class="modal-content">
-          <%= form_with(url: users_backoffice_profile_path, model: current_user, local: true) do |form| %>
-          <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Avatar</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-          <div class="modal-body">
-            <%= form.fields_for :user_profile do |profile_form| %>
-              <div class="form-group">
-                <%= profile_form.label :avatar %>
-                <%= image_tag(avatar_url, alt:"...", class:"img-circle profile_img") %>
-                <%= profile_form.file_field :avatar %>
-              </div>
-            <% end %>
-          </div>
-          <div class="modal-footer">
-            <%= form.submit "Salvar", class:"btn btn-primary" %>
-          </div>
-          <% end %>
-        </div>
-      </div>
-    </div>
 
   </body>
 </html>
