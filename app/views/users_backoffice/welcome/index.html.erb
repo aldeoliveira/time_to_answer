@@ -1,4 +1,28 @@
-<p><%= link_to "Fazer logoff [USER]", destroy_user_session_path, data: { "turbo-method": :delete } %></p>
+<h1>Seja bem-vindo!</h1>
 
-<h1>UsersBackoffice::Welcome#index</h1>
-<p>Find me in app/views/users_backoffice/welcome/index.html.erb</p>
+<div class="animated flipInY col-lg-3 col-md-3 col-sm-6 ">
+  <div class="tile-stats">
+    <div class="icon"><i class="fa fa-comments-o"></i></div>
+    <div class="count"><%= @user_statistics.total_answers %></div>
+    <h3>Total</h3>
+    <p>Quantidade total de questões respondidas.</p>
+  </div>
+</div>
+
+<div class="animated flipInY col-lg-3 col-md-3 col-sm-6 ">
+  <div class="tile-stats">
+    <div class="icon"><i class="fa fa-check-square-o"></i></div>
+    <div class="count"><%= @user_statistics.right_answers %></div>
+    <h3>Acertos</h3>
+    <p>Quantidade de acertos!</p>
+  </div>
+</div>
+
+<div class="animated flipInY col-lg-3 col-md-3 col-sm-6 ">
+  <div class="tile-stats">
+    <div class="icon"><i class="fa fa-close"></i></div>
+    <div class="count"><%= @user_statistics.wrong_answers %></div>
+    <h3>Erros</h3>
+    <p>Quantidade de erros...</p>
+  </div>
+</div>
