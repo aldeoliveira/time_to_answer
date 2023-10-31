@@ -1,24 +1,35 @@
-# README
+# Time to Answer
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Aplicação WEB em Ruby on Rails 7 para arquivar perguntas e respostas no estilo de sites de concurso.
 
-Things you may want to cover:
+## Versão do Ruby
 
-* Ruby version
+Ruby v3.2.0.
 
-* System dependencies
+## Configuração
 
-* Configuration
+1. Clone o repositório
 
-* Database creation
+```git clone git@github.com:aldeoliveira/time_to_answer.git```
 
-* Database initialization
+2. Na raiz do projeto, execute o bundle para instalar as _gems_
 
-* How to run the test suite
+```bundle install```
 
-* Services (job queues, cache servers, search engines, etc.)
+3. Instale as dependências do _Yarn_
 
-* Deployment instructions
+```yarn install```
 
-* ...
+4. A aplicação utiliza o _sqlite_, então basta executar a _rake task_ para configurar o banco
+
+```rails dev:setup```
+
+5. Agora está tudo pronto, basta levantar o servidor
+
+```rails s```
+
+## Licença
+
+MIT.
+
+**_Bom proveito!_**
